@@ -140,13 +140,6 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font='SauceCodePro Nerd Font Mono Semibold',
-    fontsize=18,
-    padding=6,
-)
-extension_defaults = widget_defaults.copy()
-
 class SSID(base.InLoopPollText):
     def __init__(self, name_display=12, **config):
         base.InLoopPollText.__init__(self, "", **config)
@@ -187,54 +180,90 @@ class Bluetooth(base.InLoopPollText):
 
         else:
             return ' Dis'
+# Dark background
+# colours = {
+#     'black': '000000',
+#     'white': 'ffffff',
+#     'grey': '262626',
+#     'red': 'ff0000',
+#     'wifi': '99e6ff',
+#     'bluetooth': '0099ff',
+#     'volume': '60daae',
+#     'clock': '9900cc',
+# }
 
+# Default background
 colours = {
+    'black': '000000',
+    'white': 'e5daff',
+    'grey': '403d39',
     'red': 'ff0000',
-    'green': '00cc00',
-    'blue': '0099ff',
-    'light_blue': '99e6ff',
-    'light_green': '60daae'
+    'wifi': '9f68fd',
+    'bluetooth': '3c04c6',
+    'volume': 'ddadfe',
+    'clock': '6600a0',
 }
 
-ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, foreground=colours["light_blue"])
+widget_defaults = dict(
+    font='SauceCodePro Nerd Font Mono Semibold',
+    fontsize=18,
+    padding=6,
+    foreground=colours["black"],
+)
+extension_defaults = widget_defaults.copy()
 
-bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())}, max_chars=14, foreground=colours["blue"])
+ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"])
+bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())},
+                   max_chars=14, background=colours["bluetooth"], foreground=colours["white"])
+
+left_sep = lambda fg, bg: widget.TextBox(text='', foreground=fg, background=bg, fontsize=56, padding=-11) 
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(disable_drag=True, fontsize=22),
-                widget.Prompt(),
-                widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t),
+                widget.CurrentLayout(foreground=colours["white"], background=colours["grey"]),
+
+                left_sep("230251", colours["grey"]),
+                widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=['3c04c6', 'ab8cf9'], this_current_screen_border='ab8cf9'),
+                widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t, foreground=colours["white"]),
+
+                left_sep(colours["white"], "1B016A"),
                 widget.CheckUpdates(
-                    display_format = ' Updates: {updates}',
-                    no_update_string = ' Up to date',
+                    display_format = ' {updates}',
+                    no_update_string = ' 0',
                     custom_command = 'apt list --upgradable', custom_command_modify = lambda x: x-1,
                     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e sudo apt upgrade'.split())},
                     restart_indicator = 'ﰇ',
-                    colour_have_updates = colours["red"], colour_no_updates = colours["green"]
+                    colour_have_updates = colours["red"], colour_no_updates = colours["black"], background=colours["white"]
                 ),
-                widget.Sep(),
+
+                left_sep(colours["bluetooth"], colours["white"]),
                 bluetooth_widget,
-                widget.Sep(),
+
+                left_sep(colours["wifi"], colours["bluetooth"]),
                 ssid_widget,
-                widget.Sep(),
+
+                left_sep(colours["volume"], colours["wifi"]),
                 widget.Volume(
-                    fmt = '墳 {}', foreground=colours["light_green"],
+                    fmt = '墳 {}', background=colours["volume"],
                     get_volume_command = 'amixer -D pulse get Master'.split(),
                     mute_command = 'amixer -q -D pulse set Master toggle',
                     volume_down_command = 'amixer -q -D pulse set Master 5%-',
                     volume_up_command = 'amixer -q -D pulse set Master 5%+'
                 ),
-                widget.Sep(),
-                widget.Clock(format='%H:%M %d-%m-%Y'),
-                widget.Sep(),
-                widget.Battery(charge_char='', full_char='', update_interval=30, discharge_char='', format='{char} {percent:2.0%}', low_foreground=colours["red"]),
-                widget.Notify(),
+
+                left_sep(colours["clock"], colours["volume"]),
+                widget.Clock(format=' %H:%M %d-%m-%Y', foreground=colours["white"], background=colours["clock"]),
+
+                left_sep(colours["grey"], colours["clock"]),
+                widget.Battery(charge_char='', full_char='', update_interval=30, discharge_char='', format='{char} {percent:2.0%}',
+                               low_foreground=colours["red"], foreground=colours["white"], background=colours["grey"]),
+
+                widget.Notify(foreground=colours["white"]),
             ],
             24,
+            background='ffffff.0' # Only to set background opacity to 0%
         ),
     ),
 ]
@@ -283,7 +312,7 @@ auto_minimize = True
 
 commands = [
     'setxkbmap es', # Change keyboard layout
-    'feh --bg-fill ~/.config/qtile/wallpaper.jpg', # Set the wallpaper
+    'feh --bg-fill ~/.config/qtile/w2.jpg', # Set the wallpaper
     'picom --config ~/.config/picom.conf -b', # Starts picom
     'system_updater &',
 ]
