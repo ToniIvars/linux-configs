@@ -1,0 +1,49 @@
+{
+    "neon": {
+        "black": "000000",
+        "white": "f3effc",
+        "grey": "403d39",
+        "red": "ff0000",
+        "wifi": "9f68fd",
+        "bluetooth": "3c04c6",
+        "volume": "ddadfe",
+        "clock": "6600a0",
+        "gb_highlight": ["3c04c6", "ab8cf9"],
+        "gb_cs_border": "ab8cf9",
+        "gb_inactive": "000000",
+        "first_sep": "230251",
+        "second_sep": "1b016a"
+    },
+
+    "bg": {
+        "black": "000000",
+        "white": "ffffff",
+        "grey": "403d39",
+        "red": "ff0000",
+        "wifi": "6f295f",
+        "bluetooth": "204d85",
+        "volume": "9f84a4",
+        "clock": "401938",
+        "gb_highlight": ["000000", "ffffff"],
+        "gb_cs_border": "ffffff",
+        "gb_inactive": "404040",
+        "first_sep": "000000",
+        "second_sep": "000000"
+    },
+
+    "unsplash": {
+        "black": "000000",
+        "white": "ffffff",
+        "grey": "262626",
+        "red": "ff0000",
+        "wifi": "5364b3",
+        "bluetooth": "1b3e8b",
+        "volume": "9a4312",
+        "clock": "592a17",
+        "gb_highlight": ["000000", "ffffff"],
+        "gb_cs_border": "ffffff",
+        "gb_inactive": "404040",
+        "first_sep": "1a0800",
+        "second_sep": "071E45"
+    }
+}
