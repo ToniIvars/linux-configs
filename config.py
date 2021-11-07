@@ -195,7 +195,7 @@ class Bluetooth(base.InLoopPollText):
 # Default background
 colours = {
     'black': '000000',
-    'white': 'e5daff',
+    'white': 'f3effc',
     'grey': '403d39',
     'red': 'ff0000',
     'wifi': '9f68fd',
@@ -208,13 +208,13 @@ widget_defaults = dict(
     font='SauceCodePro Nerd Font Mono Semibold',
     fontsize=18,
     padding=6,
-    foreground=colours["black"],
+    foreground=colours["white"],
 )
 extension_defaults = widget_defaults.copy()
 
-ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"])
+ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"], foreground=colours["black"])
 bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())},
-                   max_chars=14, background=colours["bluetooth"], foreground=colours["white"])
+                   max_chars=14, background=colours["bluetooth"])
 
 left_sep = lambda fg, bg: widget.TextBox(text='', foreground=fg, background=bg, fontsize=56, padding=-11) 
 
@@ -222,11 +222,11 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(foreground=colours["white"], background=colours["grey"]),
+                widget.CurrentLayout(background=colours["grey"]),
 
                 left_sep("230251", colours["grey"]),
                 widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=['3c04c6', 'ab8cf9'], this_current_screen_border='ab8cf9'),
-                widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t, foreground=colours["white"]),
+                widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t),
 
                 left_sep(colours["white"], "1B016A"),
                 widget.CheckUpdates(
@@ -246,7 +246,7 @@ screens = [
 
                 left_sep(colours["volume"], colours["wifi"]),
                 widget.Volume(
-                    fmt = '墳 {}', background=colours["volume"],
+                    fmt = '墳 {}', background=colours["volume"], foreground=colours["black"],
                     get_volume_command = 'amixer -D pulse get Master'.split(),
                     mute_command = 'amixer -q -D pulse set Master toggle',
                     volume_down_command = 'amixer -q -D pulse set Master 5%-',
@@ -254,13 +254,13 @@ screens = [
                 ),
 
                 left_sep(colours["clock"], colours["volume"]),
-                widget.Clock(format=' %H:%M %d-%m-%Y', foreground=colours["white"], background=colours["clock"]),
+                widget.Clock(format=' %H:%M %d-%m-%Y', background=colours["clock"]),
 
                 left_sep(colours["grey"], colours["clock"]),
                 widget.Battery(charge_char='', full_char='', update_interval=30, discharge_char='', format='{char} {percent:2.0%}',
-                               low_foreground=colours["red"], foreground=colours["white"], background=colours["grey"]),
+                               low_foreground=colours["red"], background=colours["grey"]),
 
-                widget.Notify(foreground=colours["white"]),
+                widget.Notify(),
             ],
             24,
             background='ffffff.0' # Only to set background opacity to 0%
