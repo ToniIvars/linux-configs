@@ -31,10 +31,11 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.widget import base
 
-import subprocess, os
+import subprocess, os, json
 
 mod = "mod4"
 terminal = 'alacritty'
+wallpaper = 'neon'
 
 keys = [
     # Shortcuts
@@ -180,29 +181,10 @@ class Bluetooth(base.InLoopPollText):
 
         else:
             return ' Dis'
-# Dark background
-# colours = {
-#     'black': '000000',
-#     'white': 'ffffff',
-#     'grey': '262626',
-#     'red': 'ff0000',
-#     'wifi': '99e6ff',
-#     'bluetooth': '0099ff',
-#     'volume': '60daae',
-#     'clock': '9900cc',
-# }
 
-# Default background
-colours = {
-    'black': '000000',
-    'white': 'f3effc',
-    'grey': '403d39',
-    'red': 'ff0000',
-    'wifi': '9f68fd',
-    'bluetooth': '3c04c6',
-    'volume': 'ddadfe',
-    'clock': '6600a0',
-}
+# Set the colour theme depending on the wallpaper name
+with open(os.path.expanduser('~/.config/qtile/colours.json'), 'r') as f:
+    colours = json.load(f)[wallpaper]
 
 widget_defaults = dict(
     font='SauceCodePro Nerd Font Mono Semibold',
@@ -224,11 +206,12 @@ screens = [
             [
                 widget.CurrentLayout(background=colours["grey"]),
 
-                left_sep("230251", colours["grey"]),
-                widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=['3c04c6', 'ab8cf9'], this_current_screen_border='ab8cf9'),
+                left_sep(colours["first_sep"], colours["grey"]),
+                widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=colours["gb_highlight"],
+                                this_current_screen_border=colours["gb_cs_border"], inactive=colours["gb_inactive"]),
                 widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t),
 
-                left_sep(colours["white"], "1B016A"),
+                left_sep(colours["white"], colours["second_sep"]),
                 widget.CheckUpdates(
                     display_format = ' {updates}',
                     no_update_string = ' 0',
@@ -260,7 +243,7 @@ screens = [
                 widget.Battery(charge_char='', full_char='', update_interval=30, discharge_char='', format='{char} {percent:2.0%}',
                                low_foreground=colours["red"], background=colours["grey"]),
 
-                widget.Notify(),
+                widget.Notify(background=colours["grey"]),
             ],
             24,
             background='ffffff.0' # Only to set background opacity to 0%
@@ -312,7 +295,7 @@ auto_minimize = True
 
 commands = [
     'setxkbmap es', # Change keyboard layout
-    'feh --bg-fill ~/.config/qtile/w2.jpg', # Set the wallpaper
+    f'feh --bg-fill ~/.config/qtile/{wallpaper}.jpg', # Set the wallpaper
     'picom --config ~/.config/picom.conf -b', # Starts picom
     'system_updater &',
 ]
