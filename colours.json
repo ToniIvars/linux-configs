@@ -45,5 +45,21 @@
         "gb_inactive": "404040",
         "first_sep": "1a0800",
         "second_sep": "071E45"
+    },
+
+    "tech": {
+        "black": "050F15",
+        "white": "ffffff",
+        "grey": "262626",
+        "red": "ff0000",
+        "wifi": "248EB0",
+        "bluetooth": "13516B",
+        "volume": "419272",
+        "clock": "113829",
+        "gb_highlight": ["000000", "ffffff"],
+        "gb_cs_border": "ffffff",
+        "gb_inactive": "404040",
+        "first_sep": "000103",
+        "second_sep": "050F15"
     }
 }
