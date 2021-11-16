@@ -35,7 +35,7 @@ import subprocess, os, json
 
 mod = "mod4"
 terminal = 'alacritty'
-wallpaper = 'neon'
+wallpaper = 'tech'
 
 keys = [
     # Shortcuts
@@ -108,7 +108,7 @@ keys = [
 ]
 
 # The icons are icons from Nerd Fonts
-groups = [Group(i, layout='monadtall') for i in ""]
+groups = [Group('', layout='verticaltile')] + [Group(i, layout='monadtall') for i in ""]
 
 for int_key, i in enumerate(groups, start=1):
     keys.extend([
@@ -130,14 +130,13 @@ layouts = [
     layout.Bsp(margin=2),
     # layout.Columns(margin=2),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Matrix(margin=2),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
-    # layout.VerticalTile(),
+    layout.VerticalTile(margin=2),
     # layout.Zoomy(),
 ]
 
@@ -194,7 +193,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"], foreground=colours["black"])
+ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"], foreground=colours["white"])
 bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())},
                    max_chars=14, background=colours["bluetooth"])
 
@@ -209,6 +208,7 @@ screens = [
                 left_sep(colours["first_sep"], colours["grey"]),
                 widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=colours["gb_highlight"],
                                 this_current_screen_border=colours["gb_cs_border"], inactive=colours["gb_inactive"]),
+
                 widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t),
 
                 left_sep(colours["white"], colours["second_sep"]),
@@ -229,7 +229,7 @@ screens = [
 
                 left_sep(colours["volume"], colours["wifi"]),
                 widget.Volume(
-                    fmt = '墳 {}', background=colours["volume"], foreground=colours["black"],
+                    fmt = '墳 {}', background=colours["volume"], foreground=colours["white"],
                     get_volume_command = 'amixer -D pulse get Master'.split(),
                     mute_command = 'amixer -q -D pulse set Master toggle',
                     volume_down_command = 'amixer -q -D pulse set Master 5%-',
