@@ -11,7 +11,6 @@
         "gb_highlight": ["3c04c6", "ab8cf9"],
         "gb_cs_border": "ab8cf9",
         "gb_inactive": "000000",
-        "first_sep": "230251",
         "second_sep": "1b016a"
     },
 
@@ -27,7 +26,6 @@
         "gb_highlight": ["000000", "ffffff"],
         "gb_cs_border": "ffffff",
         "gb_inactive": "404040",
-        "first_sep": "000000",
         "second_sep": "000000"
     },
 
@@ -43,8 +41,7 @@
         "gb_highlight": ["000000", "ffffff"],
         "gb_cs_border": "ffffff",
         "gb_inactive": "404040",
-        "first_sep": "1a0800",
-        "second_sep": "071E45"
+        "second_sep": "ffffff.0"
     },
 
     "tech": {
@@ -59,7 +56,6 @@
         "gb_highlight": ["000000", "ffffff"],
         "gb_cs_border": "ffffff",
         "gb_inactive": "404040",
-        "first_sep": "000103",
         "second_sep": "050F15"
     },
     
@@ -75,7 +71,6 @@
         "gb_highlight": ["000000", "ffffff"],
         "gb_cs_border": "ffffff",
         "gb_inactive": "404040",
-        "first_sep": "000103",
         "second_sep": "ffffff.0"
     }
 }
