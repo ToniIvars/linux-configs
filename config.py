@@ -35,7 +35,7 @@ import subprocess, os, json
 
 mod = "mod4"
 terminal = 'alacritty'
-wallpaper = 'tech'
+wallpaper = 'miui'
 
 keys = [
     # Shortcuts
@@ -203,9 +203,8 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(background=colours["grey"]),
+                widget.CurrentLayoutIcon(background=colours["grey"], custom_icon_paths=[os.path.expanduser('~/.config/qtile/layout-icons')], scale=0.75),
 
-                left_sep(colours["first_sep"], colours["grey"]),
                 widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=colours["gb_highlight"],
                                 this_current_screen_border=colours["gb_cs_border"], inactive=colours["gb_inactive"]),
 
