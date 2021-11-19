@@ -61,5 +61,21 @@
         "gb_inactive": "404040",
         "first_sep": "000103",
         "second_sep": "050F15"
+    },
+    
+    "miui": {
+        "black": "020413",
+        "white": "ffffff",
+        "grey": "353464",
+        "red": "ff0000",
+        "wifi": "2F2078",
+        "bluetooth": "5E62D3",
+        "volume": "AA5BE3",
+        "clock": "551B5F",
+        "gb_highlight": ["000000", "ffffff"],
+        "gb_cs_border": "ffffff",
+        "gb_inactive": "404040",
+        "first_sep": "000103",
+        "second_sep": "ffffff.0"
     }
 }
