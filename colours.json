@@ -53,7 +53,7 @@
         "bluetooth": "13516B",
         "volume": "419272",
         "clock": "113829",
-        "gb_highlight": ["000000", "ffffff"],
+        "gb_highlight": ["000000.0", "ffffff"],
         "gb_cs_border": "ffffff",
         "gb_inactive": "404040",
         "second_sep": "050F15"
@@ -68,8 +68,8 @@
         "bluetooth": "5E62D3",
         "volume": "AA5BE3",
         "clock": "551B5F",
-        "gb_highlight": ["000000", "ffffff"],
-        "gb_cs_border": "ffffff",
+        "gb_highlight": ["000000.0", "5E62D3"],
+        "gb_cs_border": "5E62D3",
         "gb_inactive": "404040",
         "second_sep": "ffffff.0"
     }
