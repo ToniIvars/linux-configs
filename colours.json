@@ -13,51 +13,6 @@
         "gb_inactive": "000000",
         "second_sep": "1b016a"
     },
-
-    "bg": {
-        "black": "000000",
-        "white": "ffffff",
-        "grey": "403d39",
-        "red": "ff0000",
-        "wifi": "6f295f",
-        "bluetooth": "204d85",
-        "volume": "9f84a4",
-        "clock": "401938",
-        "gb_highlight": ["000000", "ffffff"],
-        "gb_cs_border": "ffffff",
-        "gb_inactive": "404040",
-        "second_sep": "000000"
-    },
-
-    "unsplash": {
-        "black": "000000",
-        "white": "ffffff",
-        "grey": "262626",
-        "red": "ff0000",
-        "wifi": "5364b3",
-        "bluetooth": "1b3e8b",
-        "volume": "9a4312",
-        "clock": "592a17",
-        "gb_highlight": ["000000", "ffffff"],
-        "gb_cs_border": "ffffff",
-        "gb_inactive": "404040",
-        "second_sep": "ffffff.0"
-    },
-
-    "tech": {
-        "black": "050F15",
-        "white": "ffffff",
-        "grey": "262626",
-        "red": "ff0000",
-        "wifi": "248EB0",
-        "bluetooth": "13516B",
-        "volume": "419272",
-        "clock": "113829",
-        "gb_highlight": ["000000.0", "ffffff"],
-        "gb_cs_border": "ffffff",
-        "gb_inactive": "404040",
-        "second_sep": "050F15"
-    },
     
     "miui": {
         "black": "020413",
