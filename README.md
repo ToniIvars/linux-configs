@@ -51,3 +51,7 @@ sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.d
 - picom
 - system_updater and bluetooth_config (selfmade tools in this repository too, install in `/usr/bin/` and give execution privileges)
 - Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
+
+### Notes
+- You must set **nopasswd** privilege to apt in order to run the system_updater.
+- system_updater tools is only for **APT**, you have to modify it to update automatically with other package managers.
