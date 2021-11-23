@@ -15,6 +15,8 @@ unzip wallpapers.zip
 unzip layout-icons.zip
 
 rm layout-icons.zip wallpapers.zip
+
+cp -r picom ~/.config/picom
 ```
 ### Alacritty installation
 To install Alacritty, you can refer to [Alacritty Installation](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) or run `sudo snap install alacritty --classic`.
@@ -35,6 +37,9 @@ cd /usr/share/xsessions
 sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.desktop
 ```
 
+### Picom installation
+To install Picom, you can refer to [Picom Installation](https://github.com/yshui/picom#build).
+
 ### Default software
 - Web browser: Firefox
 - Code editor: Visual Studio Code
@@ -48,7 +53,6 @@ sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.d
 - bluetoothctl
 - nmtui
 - feh
-- picom
 - system_updater and bluetooth_config (selfmade tools in this repository too, install in `/usr/bin/` and give execution privileges)
 - Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
 
