@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+import sys, time, pexpect, subprocess
+from prettytable import PrettyTable
+
+def find_address():
+    print('Scanning...\n')
+    r = subprocess.check_output('hcitool scan'.split()).decode().splitlines()
+    macs = [x.split()[0] for x in r[1:]]
+    devices = [x.split()[1] for x in r[1:]]
+
+    if not macs:
+        return False
+
+    table = PrettyTable()
+    table.field_names = ['Code', 'Device']
+
+    for code, device in enumerate(devices):
+        table.add_row([str(code), device])
+
+    print(table)
+    code = int(input('\nSelect a device (only the code): '))
+
+    return macs[code]
+
+def connect_to(address):
+    p = pexpect.spawn('bluetoothctl', encoding='utf-8')
+    p.sendline(f'pair {address}')
+    p.sendline(f'trust {address}')
+    p.sendline(f'connect {address}')
+
+    time.sleep(5)
+    p.sendline('quit')
+
+    print(f'\nThe device should be connected. If it is not, execute this:\nconnect {address}')
+
+if __name__ == '__main__':
+    address = find_address()
+    if address:
+        connect_to(address)
+    else:
+        input('No devices found')
