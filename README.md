@@ -34,3 +34,20 @@ Once installed Qtile, you must create a **qtile.desktop** file in `/usr/share/xs
 cd /usr/share/xsessions
 sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.desktop
 ```
+
+### Default software
+- Web browser: Firefox
+- Code editor: Visual Studio Code
+- File manager: Thunar
+
+### Some dependencies
+- dmenu
+- light
+- amixer
+- iwgetid
+- bluetoothctl
+- nmtui
+- feh
+- picom
+- system_updater and bluetooth_config (selfmade tools in this repository too, install in `/usr/bin/` and give execution privileges)
+- Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
