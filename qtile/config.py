@@ -181,6 +181,15 @@ class Bluetooth(base.InLoopPollText):
         else:
             return ' Dis'
 
+class Brightness(base.InLoopPollText):
+    def __init__(self, **config):
+        base.InLoopPollText.__init__(self, "", **config)
+        self.update_interval = 0.2
+
+    def poll(self):
+        current = float(subprocess.check_output(['light', '-G']).decode())
+        return f' {round(current, -1):.0f}%'
+
 # Set the colour theme depending on the wallpaper name
 with open(os.path.expanduser('~/.config/qtile/colours.json'), 'r') as f:
     colours = json.load(f)[wallpaper]
@@ -193,9 +202,10 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"], foreground=colours["white"])
+ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"])
 bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())},
                    max_chars=14, background=colours["bluetooth"])
+brightness_widget = Brightness(background=colours["volume"])
 
 left_sep = lambda fg, bg: widget.TextBox(text='', foreground=fg, background=bg, fontsize=56, padding=-11) 
 
@@ -228,12 +238,13 @@ screens = [
 
                 left_sep(colours["volume"], colours["wifi"]),
                 widget.Volume(
-                    fmt = '墳 {}', background=colours["volume"], foreground=colours["white"],
+                    fmt = '墳 {}', background=colours["volume"],
                     get_volume_command = 'amixer -D pulse get Master'.split(),
                     mute_command = 'amixer -q -D pulse set Master toggle',
                     volume_down_command = 'amixer -q -D pulse set Master 5%-',
                     volume_up_command = 'amixer -q -D pulse set Master 5%+'
                 ),
+                brightness_widget,
 
                 left_sep(colours["clock"], colours["volume"]),
                 widget.Clock(format=' %H:%M %d-%m-%Y', background=colours["clock"]),
