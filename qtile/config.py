@@ -35,7 +35,7 @@ import subprocess, os, json
 
 mod = "mod4"
 terminal = 'alacritty'
-wallpaper = 'miui'
+wallpaper = 'nebula'
 
 keys = [
     # Shortcuts
@@ -108,7 +108,7 @@ keys = [
 ]
 
 # The icons are icons from Nerd Fonts
-groups = [Group('', layout='verticaltile')] + [Group(i, layout='monadtall') for i in ""]
+groups = [Group(i, layout='monadtall') for i in ""]
 
 for int_key, i in enumerate(groups, start=1):
     keys.extend([
