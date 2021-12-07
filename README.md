@@ -17,6 +17,8 @@ unzip layout-icons.zip
 rm layout-icons.zip wallpapers.zip
 
 cp -r picom ~/.config/picom
+
+cp -r dunst ~/.config/dunst
 ```
 ### Alacritty installation
 To install Alacritty, you can refer to [Alacritty Installation](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) or run `sudo snap install alacritty --classic`.
@@ -40,6 +42,9 @@ sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.d
 ### Picom installation
 To install Picom, you can refer to [Picom Installation](https://github.com/yshui/picom#build).
 
+### Dunst installation
+To install Dunst, you can run `sudo apt install dunst` in Ubuntu or `pacman -S dunst` in Arch.
+
 ### Default software
 - Web browser: Firefox
 - Code editor: Visual Studio Code
@@ -58,4 +63,4 @@ To install Picom, you can refer to [Picom Installation](https://github.com/yshui
 
 ### Notes
 - You must set **nopasswd** privilege to apt in order to run the system_updater.
-- system_updater tools is only for **APT**, you have to modify it to update automatically with other package managers.
+- system_updater tool is only for **APT**, you have to modify it to update automatically with other package managers.
