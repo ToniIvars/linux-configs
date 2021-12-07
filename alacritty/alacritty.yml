@@ -111,7 +111,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Fira Code
+    family: FiraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Medium
@@ -122,7 +122,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Fira Code
+    family: FiraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -133,7 +133,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Fira Code
+    family: FiraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -144,7 +144,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Fira Code
+    family: FiraCode Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -176,33 +176,85 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (One Dark)
-colors:
-  # Default colors
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#1e2127'
+#     foreground: '#abb2bf'
+
+#   # Normal colors
+#   normal:
+#     black:   '#1e2127'
+#     red:     '#e06c75'
+#     green:   '#98c379'
+#     yellow:  '#d19a66'
+#     blue:    '#61afef'
+#     magenta: '#c678dd'
+#     cyan:    '#56b6c2'
+#     white:   '#abb2bf'
+
+#   # Bright colors
+#   bright:
+#     black:   '#5c6370'
+#     red:     '#e06c75'
+#     green:   '#98c379'
+#     yellow:  '#d19a66'
+#     blue:    '#61afef'
+#     magenta: '#c678dd'
+#     cyan:    '#56b6c2'
+#     white:   '#ffffff'
+
+# Color theme ported from Konsole: Linux colors 
+colors:  
   primary:
-    background: '#1e2127'
-    foreground: '#abb2bf'
+    foreground: '0xe3e3e3'
+    bright_foreground: '0xffffff'
+    dim_foreground:    '0xe3e3e3'
+    background: '0x1f1f1f'
+    bright_background: '0x686868' # not sure
+    dim_background:    '0x1f1f1f' # not sure
 
-  # Normal colors
+  cursor:
+    text: '0x191622'
+    cursor: '0xf8f8f2'
+
+  search:
+    matches:
+      foreground: '0xb2b2b2'
+      background: '0xb26818'
+    focused_match:
+      foreground: CellBackground
+      background: CellForeground
+
   normal:
-    black:   '#1e2127'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#d19a66'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#abb2bf'
+    black:   '0x000000'
+    red:     '0xb21818'
+    green:   '0x18b218'
+    yellow:  '0xb26818'
+    blue:    '0x1818b2'
+    magenta: '0xb218b2'
+    cyan:    '0x18b2b2'
+    white:   '0xb2b2b2'
 
-  # Bright colors
   bright:
-    black:   '#5c6370'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#d19a66'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#ffffff'
+    black:   '0x686868'
+    red:     '0xff5454'
+    green:   '0x54ff54'
+    yellow:  '0xffff54'
+    blue:    '0x5454ff'
+    magenta: '0xff54ff'
+    cyan:    '0x54ffff'
+    white:   '0xffffff'
+
+  dim:
+    black:   '0x000000'
+    red:     '0xb21818'
+    green:   '0x18b218'
+    yellow:  '0xb26818'
+    blue:    '0x1818b2'
+    magenta: '0xb218b2'
+    cyan:    '0x18b2b2'
+    white:   '0xb2b2b2'
 
 
 # Colors (Tomorrow Night)
@@ -387,7 +439,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.75
+background_opacity: 0.6
 
 #selection:
   # This string contains all characters that are used as separators for
