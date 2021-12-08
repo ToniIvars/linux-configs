@@ -251,7 +251,7 @@ screens = [
 
                 left_sep(colours["grey"], colours["clock"]),
                 widget.Battery(charge_char='', full_char='', update_interval=30, discharge_char='', format='{char} {percent:2.0%}',
-                               low_foreground=colours["red"], background=colours["grey"]),
+                               low_foreground=colours["red"], background=colours["grey"], notify_below=10),
             ],
             24,
             background='ffffff.0' # Only to set background opacity to 0%
