@@ -5,23 +5,33 @@ This repository is created to publish configuration files of some software in li
 
 The installation of the configs is very simple. You must run:
 ```
+# Clone the repo
 git clone https://github.com/ToniIvars/linux-configs.git
 cd linux-configs
+
+# Copy Alacritty config
 cp -r alacritty ~/.config/alacritty
 
+# Copy Picon config
+cp -r picom ~/.config/picom
+
+# Copy Dunst config
+cp -r dunst ~/.config/dunst
+
+# Copy .zshrc
+cp zsh/.zshrc ~/.zshrc
+
+# Copy Qtile config
 cp -r qtile ~/.config/qtile
 cd ~/.config/qtile
 unzip wallpapers.zip
 unzip layout-icons.zip
-
 rm layout-icons.zip wallpapers.zip
-
-cp -r picom ~/.config/picom
-
-cp -r dunst ~/.config/dunst
 ```
 ### Alacritty installation
-To install Alacritty, you can refer to [Alacritty Installation](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) or run `sudo snap install alacritty --classic`.
+To install Alacritty, you can refer to [Alacritty Installation](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) or run:
+- `sudo snap install alacritty --classic` in Ubuntu.
+- `sudo pacman -S alacritty` in Arch.
 
 ### Qtile installation
 You can run different commands to install Qtile in different distros.
@@ -43,7 +53,23 @@ sudo wget https://raw.githubusercontent.com/qtile/qtile/master/resources/qtile.d
 To install Picom, you can refer to [Picom Installation](https://github.com/yshui/picom#build).
 
 ### Dunst installation
-To install Dunst, you can run `sudo apt install dunst` in Ubuntu or `pacman -S dunst` in Arch.
+To install Dunst, you can run `sudo apt install dunst` in Ubuntu or `sudo pacman -S dunst` in Arch.
+
+### Zsh installation
+To install Zsh, you can run `sudo apt install zsh` in Ubuntu or `sudo pacman -S zsh` in Arch.
+
+Then, to install some of its dependencies, you can run the following commands: 
+```
+# Install oh-my-zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Clone powerlevel10k theme for oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
+cp zsh/.p10k.zsh ~/.p10k.zsh
+
+# Clone zsh-autosuggestions plugins for oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+```
 
 ### Default software
 - Web browser: Firefox
@@ -51,13 +77,13 @@ To install Dunst, you can run `sudo apt install dunst` in Ubuntu or `pacman -S d
 - File manager: Thunar
 
 ### Some dependencies
-- dmenu
-- light
+- [dmenu](https://tools.suckless.org/dmenu/)
+- [light](https://github.com/haikarainen/light#installation)
 - amixer
 - iwgetid
 - bluetoothctl
 - nmtui
-- feh
+- [feh](https://feh.finalrewind.org/)
 - system_updater and bluetooth_config (selfmade tools in this repository too, install in `/usr/bin/` and give execution privileges)
 - Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
 
