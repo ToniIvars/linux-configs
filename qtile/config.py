@@ -305,7 +305,6 @@ commands = [
     'setxkbmap es', # Change keyboard layout
     f'feh --bg-fill ~/.config/qtile/wallpapers/{wallpaper}.jpg', # Set the wallpaper
     'picom --config ~/.config/picom.conf -b', # Starts picom
-    'system_updater &',
 ]
 
 for c in commands:
