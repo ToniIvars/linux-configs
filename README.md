@@ -82,6 +82,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 - amixer
 - iwgetid
 - bluetoothctl
+- hcitool
 - nmtui
 - [feh](https://feh.finalrewind.org/)
 - bluetooth_config (selfmade tool in this repository too, install in `/usr/bin/` and give execution privileges)
