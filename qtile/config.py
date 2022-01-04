@@ -304,7 +304,7 @@ auto_minimize = True
 commands = [
     'setxkbmap es', # Change keyboard layout
     f'feh --bg-fill ~/.config/qtile/wallpapers/{wallpaper}.jpg', # Set the wallpaper
-    'picom --config ~/.config/picom.conf -b', # Starts picom
+    'picom --config ~/.config/picom/picom.conf -b', # Starts picom
 ]
 
 for c in commands:
