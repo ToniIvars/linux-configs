@@ -10,19 +10,19 @@ git clone https://github.com/ToniIvars/linux-configs.git
 cd linux-configs
 
 # Copy Alacritty config
-cp -r alacritty ~/.config/alacritty
+cp -r alacritty ~/.config/
 
 # Copy Picon config
-cp -r picom ~/.config/picom
+cp -r picom ~/.config/
 
 # Copy Dunst config
-cp -r dunst ~/.config/dunst
+cp -r dunst ~/.config/
 
 # Copy .zshrc
 cp zsh/.zshrc ~/.zshrc
 
 # Copy Qtile config
-cp -r qtile ~/.config/qtile
+cp -r qtile ~/.config/
 cd ~/.config/qtile
 unzip wallpapers.zip
 unzip layout-icons.zip
