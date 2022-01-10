@@ -12,6 +12,9 @@ cd linux-configs
 # Copy Alacritty config
 cp -r alacritty ~/.config/
 
+# Copy Kitty config
+cp -r kitty ~/.config/
+
 # Copy Picon config
 cp -r picom ~/.config/
 
@@ -32,6 +35,9 @@ rm layout-icons.zip wallpapers.zip
 To install Alacritty, you can refer to [Alacritty Installation](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) or run:
 - `sudo snap install alacritty --classic` in Ubuntu.
 - `sudo pacman -S alacritty` in Arch.
+
+### Kitty installation
+To install Kitty, you can refer to [Kitty Installation](https://sw.kovidgoyal.net/kitty/binary/) or run `sudo pacman -S kitty` in Arch.
 
 ### Qtile installation
 You can run different commands to install Qtile in different distros.
