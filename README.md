@@ -10,19 +10,19 @@ git clone https://github.com/ToniIvars/linux-configs.git
 cd linux-configs
 
 # Copy Alacritty config
-cp -r alacritty ~/.config/alacritty
+cp -r alacritty ~/.config/
 
 # Copy Picon config
-cp -r picom ~/.config/picom
+cp -r picom ~/.config/
 
 # Copy Dunst config
-cp -r dunst ~/.config/dunst
+cp -r dunst ~/.config/
 
 # Copy .zshrc
 cp zsh/.zshrc ~/.zshrc
 
 # Copy Qtile config
-cp -r qtile ~/.config/qtile
+cp -r qtile ~/.config/
 cd ~/.config/qtile
 unzip wallpapers.zip
 unzip layout-icons.zip
@@ -82,6 +82,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 - amixer
 - iwgetid
 - bluetoothctl
+- hcitool
 - nmtui
 - [feh](https://feh.finalrewind.org/)
 - bluetooth_config (selfmade tool in this repository too, install in `/usr/bin/` and give execution privileges)
