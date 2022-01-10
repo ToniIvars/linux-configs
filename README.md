@@ -77,7 +77,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 - File manager: Thunar
 
 ### Some dependencies
-- [dmenu](https://tools.suckless.org/dmenu/)
+- [dmenu](https://github.com/ToniIvars/dmenu) (my own fork)
 - [light](https://github.com/haikarainen/light#installation)
 - amixer
 - iwgetid
