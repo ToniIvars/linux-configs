@@ -118,7 +118,7 @@ class SSID(base.InLoopPollText):
     
     def poll(self):
         try:
-            connected = subprocess.check_output(f'iwgetid -r'.split()).decode()
+            connected = subprocess.check_output('nmcli -g name c show --active'.split()).decode()
             return '直 ' + self.ssid_format(connected.strip())
 
         except:
@@ -164,7 +164,7 @@ extension_defaults = widget_defaults.copy()
 # Definition of screen and widgets
 ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"])
 
-bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e bluetooth_config'.split())},
+bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('blueman-manager'.split())},
                    max_chars=14, background=colours["bluetooth"])
 
 brightness_widget = Brightness(background=colours["volume"])

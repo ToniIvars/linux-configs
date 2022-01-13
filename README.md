@@ -86,12 +86,10 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 - [dmenu](https://github.com/ToniIvars/dmenu) (my own fork)
 - [light](https://github.com/haikarainen/light#installation)
 - amixer
-- iwgetid
+- blueman
 - bluetoothctl
-- hcitool
 - nmtui
 - [feh](https://feh.finalrewind.org/)
-- bluetooth_config (selfmade tool in this repository too, install in `/usr/bin/` and give execution privileges)
 - Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
 
 ### Notes
