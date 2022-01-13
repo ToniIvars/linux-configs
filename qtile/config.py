@@ -101,7 +101,7 @@ layouts = [
     layout.Max()
 ]
 
-# Custom widgets
+#  widgets
 class SSID(base.InLoopPollText):
     def __init__(self, name_display=12, **config):
         base.InLoopPollText.__init__(self, "", **config)
@@ -113,16 +113,11 @@ class SSID(base.InLoopPollText):
         if len(ssid) <= self.name_display:
             return ssid
 
-        else:
-            return f'{ssid[:5]}  {ssid[-5:]}'
+        return f'{ssid[:5]}  {ssid[-5:]}'
     
     def poll(self):
-        try:
-            connected = subprocess.check_output('nmcli -g name c show --active'.split()).decode()
-            return '直 ' + self.ssid_format(connected.strip())
-
-        except:
-            return '直 Dis'
+        connected = subprocess.check_output('nmcli -g name c show --active'.split()).decode()
+        return '直 ' + (self.ssid_format(connected.strip()) if connected else 'Dis')
 
 class Bluetooth(base.InLoopPollText):
     def __init__(self, **config):
@@ -140,8 +135,7 @@ class Bluetooth(base.InLoopPollText):
             if connected:
                 return f' {device}'
 
-        else:
-            return ' Dis'
+        return ' Dis'
 
 class Brightness(base.InLoopPollText):
     def __init__(self, **config):
@@ -180,7 +174,7 @@ screens = [
                 widget.GroupBox(disable_drag=True, fontsize=22, highlight_method='line', highlight_color=colours["gb_highlight"],
                                 this_current_screen_border=colours["gb_cs_border"], inactive=colours["gb_inactive"]),
 
-                widget.WindowName(parse_text=lambda t: t.split(' - ')[-1] if 'Firefox' in t else t),
+                widget.WindowName(parse_text=lambda t: 'Mozilla Firefox' if 'Firefox' in t else t),
 
                 left_sep(colours["white"], colours["second_sep"]),
                 widget.CheckUpdates(
