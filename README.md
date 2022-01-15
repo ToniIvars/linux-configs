@@ -77,6 +77,15 @@ cp zsh/.p10k.zsh ~/.p10k.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 ```
 
+### ProtonVPN IKEv2 setup
+1. Download the ProtonVPN certificate and place it in the appropriate directory:
+`sudo wget https://protonvpn.com/download/ProtonVPN_ike_root.der -O /etc/ipsec.d/cacerts/`
+2. Download the sample connection from this repo:
+`sudo wget https://raw.githubusercontent.com/ToniIvars/linux-configs/master/ipsec/ipsec-sample.conf -O /etc/ipsec.conf`
+3. Change **conn**, **eap_identity** (from [ProtonVPN account](https://account.protonvpn.com/account) as *OpenVPN / IKEv2 User*) and **server** from the downloaded file.
+4. Open **/etc/ipsec.secrets** and add your credentials in the form `<username> : EAP <password>` from [ProtonVPN account](https://account.protonvpn.com/account).
+5. Restart ipsec service: `sudo ipsec restart`
+
 ### Default software
 - Web browser: Firefox
 - Code editor: Visual Studio Code
@@ -89,6 +98,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 - blueman
 - bluetoothctl
 - nmtui
+- [strongswan](https://www.strongswan.org/) - [Arch](https://wiki.archlinux.org/title/StrongSwan) or [Ubuntu](https://packages.ubuntu.com/search?keywords=strongswan)
 - [feh](https://feh.finalrewind.org/)
 - Some [Nerd Font](https://www.nerdfonts.com/font-downloads) ([SauceCodePro](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip) as default)
 

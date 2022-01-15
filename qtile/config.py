@@ -1,7 +1,7 @@
 from typing import List
 
-from libqtile import bar, layout, widget, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile import bar, layout, widget, qtile, hook
+from libqtile.config import Group, Key, Screen
 from libqtile.lazy import lazy
 from libqtile.widget import base
 
@@ -10,6 +10,7 @@ import subprocess, os, json
 mod = "mod4"
 terminal = 'kitty'
 wallpaper = 'nebula'
+protonvpn_connection_name = 'ProtonVPN'
 
 dmenu_command = 'dmenu_run -p "Launch:" -nf "#ffffff" -sf "#ffffff" -nb "#49557D" -sb "#7b8cac" -h 26'
 
@@ -101,7 +102,18 @@ layouts = [
     layout.Max()
 ]
 
-#  widgets
+# Custom widgets
+class IKEv2_ProtonVPN(base.InLoopPollText):
+    def __init__(self, **config):
+        base.InLoopPollText.__init__(self, "", **config)
+        self.update_interval = 5
+    
+    def poll(self):
+        command = subprocess.check_output(f'sudo ipsec status {protonvpn_connection_name}'.split()).decode().strip()
+        
+        if 'ESTABLISHED' in command:
+            return ''
+
 class SSID(base.InLoopPollText):
     def __init__(self, name_display=12, **config):
         base.InLoopPollText.__init__(self, "", **config)
@@ -156,7 +168,12 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 # Definition of screen and widgets
-ssid_widget = SSID(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split())}, background=colours["wifi"])
+vpn_widget = IKEv2_ProtonVPN(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(f'sudo ipsec down {protonvpn_connection_name}'.split())}, background=colours["wifi"], foreground='00ff00')
+
+ssid_widget = SSID(mouse_callbacks={
+    'Button1': lambda: qtile.cmd_spawn(f'{terminal} -e nmtui'.split()),
+    'Button3': lambda: qtile.cmd_spawn(f'sudo ipsec up {protonvpn_connection_name}')
+}, background=colours["wifi"])
 
 bluetooth_widget = Bluetooth(mouse_callbacks={'Button1': lambda: qtile.cmd_spawn('blueman-manager'.split())},
                    max_chars=14, background=colours["bluetooth"])
@@ -190,6 +207,7 @@ screens = [
                 bluetooth_widget,
 
                 left_sep(colours["wifi"], colours["bluetooth"]),
+                vpn_widget,
                 ssid_widget,
 
                 left_sep(colours["volume"], colours["wifi"]),
@@ -221,30 +239,20 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 
-# floating_layout = layout.Floating(float_rules=[
-#     # Run the utility of `xprop` to see the wm class and name of an X client.
-#     *layout.Floating.default_float_rules,
-#     Match(wm_class='confirmreset'),  # gitk
-#     Match(wm_class='makebranch'),  # gitk
-#     Match(wm_class='maketag'),  # gitk
-#     Match(wm_class='ssh-askpass'),  # ssh-askpass
-#     Match(title='branchdialog'),  # gitk
-#     Match(title='pinentry'),  # GPG key password entry
-# ])
-
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
 auto_minimize = True
 
-# wmname = "LG3D"
-
-commands = [
-    'setxkbmap es', # Change keyboard layout
-    f'feh --bg-fill ~/.config/qtile/wallpapers/{wallpaper}.jpg', # Set the wallpaper
-    'picom --config ~/.config/picom/picom.conf -b', # Starts picom
-]
-
-for c in commands:
-    os.system(c)
+@hook.subscribe.startup_once
+def autostart():
+    commands = [
+        'setxkbmap es', # Change keyboard layout
+        'picom --config ~/.config/picom/picom.conf -b',  # Starts picom
+        'sudo ipsec start',
+        f'feh --bg-fill ~/.config/qtile/wallpapers/{wallpaper}.jpg'
+    ]
+    
+    for c in commands:
+        os.system(c)
