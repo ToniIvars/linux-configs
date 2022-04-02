@@ -13,6 +13,9 @@ cp zsh/.p10k.zsh ~/.p10k.zsh
 
 # Clone zsh-autosuggestions plugins for oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+# Clone zsh-syntax-highlighting plugins for oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
 ## Default software
