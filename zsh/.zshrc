@@ -78,10 +78,88 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+sudo
 git
 zsh-autosuggestions
 zsh-syntax-highlighting
 )
+
+function extract-ports(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+
+	echo "[*] Open ports in $ip_address: $ports"
+	echo $ports | tr -d '\n' | xclip -sel clip
+}
+
+function set-target(){
+	echo $1 > /home/toni/.config/polybar/scripts/target-ip.txt
+	mkdir /home/toni/Desktop/HTB/$2
+	cd /home/toni/Desktop/HTB/$2
+	mkdir nmap exploits content
+	cd nmap
+}
+
+function set-vuln-name(){
+	echo $(ip a | grep 'inet 192' | awk '{print $2}' | awk -F/ '{print $1}') > /home/toni/.config/polybar/scripts/htb-ip.txt
+	VBoxHeadless --startvm $1 > /dev/null & disown
+	mkdir /home/toni/Desktop/VulnHub/$1
+	cd /home/toni/Desktop/VulnHub/$1
+	mkdir nmap exploits content
+	cd nmap
+}
+
+function set-vuln-ip(){
+	echo $1 > /home/toni/.config/polybar/scripts/target-ip.txt
+}
+
+function set-htb(){
+	echo $1 > /home/toni/.config/polybar/scripts/htb-ip.txt
+}
+
+function hide-hack-bar(){
+	(ps aux | grep "polybar htb" | grep -v "grep" | head -n 1 | awk '{print $2}' | xargs kill) &> /dev/null
+}
+
+function show-hack-bar(){
+	polybar htb &> /dev/null & disown
+}
+
+function stop-openvpn(){
+	(ps aux | grep "openvpn" | head -n 1 | awk '{print $2}' | xargs kill) &> /dev/null
+}
+
+function stop-virtualbox(){
+	(ps aux | grep "VBoxHeadless" | head -n 1 | awk '{print $2}' | xargs kill) &> /dev/null
+}
+
+function start-hack(){
+	show-hack-bar
+	cp ~/.zsh_history ~/.zsh_history_copy
+	clear
+}
+
+function stop-hack(){
+	hide-hack-bar
+	stop-openvpn
+	stop-virtualbox
+	rm ~/.zsh_history
+	mv ~/.zsh_history_copy ~/.zsh_history
+	clear
+}
+
+function handle-monitors(){
+	monitors=$(xrandr | grep '\sconnected\s' | wc -l)
+
+	if [[ monitors -eq 2 ]]; then
+		if [[ $(xrandr | grep 'HDMI-A-0' | awk '{print $3}') == '1920x1080+0+0' ]]; then
+			xrandr --output HDMI-A-0 --off
+
+		else
+			xrandr --output HDMI-A-0 --auto --above eDP
+		fi
+	fi
+}
 
 source $ZSH/oh-my-zsh.sh
 

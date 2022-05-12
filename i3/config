@@ -30,7 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id setxkbmap es cat
 exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
-exec --no-startup-id feh --bg-fill ~/.config/qtile/wallpapers/nebula.jpg
+exec --no-startup-id feh --bg-fill ~/.config/feh/nebula.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -64,7 +64,7 @@ bindsym $mod+Control+q exec systemctl poweroff # Shutdown
 bindsym $mod+Control+r exec systemctl reboot # Reboot
 bindsym $mod+Control+s exec systemctl suspend # Suspend
 
-bindsym $mod+p move workspace to output next
+bindsym $mod+m move workspace to output next
 
 # change focus
 bindsym $mod+Left focus left
@@ -134,7 +134,7 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+0 move container to workspace number $ws0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
