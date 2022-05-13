@@ -1,6 +1,6 @@
 #Installation
-sudo pacman -S kitty dunst zsh yay picom light alsa-utils blueberry feh lsd bat rofi libnotify --noconfirm
-yay -S nerd-fonts-source-code-pro polybar --noconfirm
+sudo pacman -S kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify --noconfirm
+paru -S nerd-fonts-source-code-pro polybar --noconfirm
 
 # Clone the repo
 git clone https://github.com/ToniIvars/linux-configs.git
