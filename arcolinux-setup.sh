@@ -1,10 +1,7 @@
 #Installation
-sudo pacman -S kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify --noconfirm
-paru -S nerd-fonts-source-code-pro polybar --noconfirm
-
-# Clone the repo
-git clone https://github.com/ToniIvars/linux-configs.git
-cd linux-configs
+sudo pacman -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp --noconfirm
+paru -S nerd-fonts-source-code-pro polybar snapd --noconfirm
+sudo snap install code --classic
 
 # i3 config
 cp -r i3 ~/.config/
