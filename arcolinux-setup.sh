@@ -1,5 +1,5 @@
 #Installation
-sudo pacman -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp --noconfirm
+sudo pacman -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code --noconfirm
 paru -S nerd-fonts-source-code-pro polybar snapd --noconfirm
 sudo snap install code --classic
 
