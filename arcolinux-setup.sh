@@ -5,6 +5,8 @@ echo -e "[+] Installing some software with paru...\n"
 paru -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
 
 echo -e "[+] Installing VS Code with snap...\n"
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install code --classic
 
 # i3 config
