@@ -10,7 +10,7 @@ cp -r i3 ~/.config/
 cp -r kitty ~/.config/
 
 # ZSH config
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
 cp zsh/.p10k.zsh ~/.p10k.zsh
@@ -35,3 +35,5 @@ cp -r dunst ~/.config/
 cp -r feh ~/.config/
 
 cp zsh/.zshrc ~/.zshrc
+
+chsh -s /usr/bin/zsh
