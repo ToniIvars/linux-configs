@@ -1,15 +1,21 @@
+#!/bin/bash
+
 #Installation
-sudo pacman -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code --noconfirm
-paru -S nerd-fonts-source-code-pro polybar snapd --noconfirm
+echo -n "[+] Installing some software with paru...\n"
+paru -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
+
+echo -n "[+] Installing VS Code with snap...\n"
 sudo snap install code --classic
 
 # i3 config
+echo -n "[+] Copying i3 and kitty config...\n"
 cp -r i3 ~/.config/
 
 # Kitty config
 cp -r kitty ~/.config/
 
 # ZSH config
+echo -n "[+] Installing oh-my-zsh and its plugins...\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
@@ -19,6 +25,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+
+echo -n "[+] Copying polybar, rofi, picom, dunst, feh and zsh config...\n"
 # Polybar config
 cp -r polybar ~/.config/
 
@@ -36,4 +44,5 @@ cp -r feh ~/.config/
 
 cp zsh/.zshrc ~/.zshrc
 
+echo -n "[+] Changing default shell to zsh...\n"
 chsh -s /usr/bin/zsh
