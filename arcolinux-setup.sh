@@ -10,14 +10,14 @@ cp -r i3 ~/.config/
 cp -r kitty ~/.config/
 
 # ZSH config
-cp zsh/.zshrc ~/.zshrc
-
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
 cp zsh/.p10k.zsh ~/.p10k.zsh
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 chsh -s /usr/bin/zsh
 
@@ -32,3 +32,5 @@ cp -r picom ~/.config/
 
 # Dunst config
 cp -r dunst ~/.config/
+
+cp zsh/.zshrc ~/.zshrc
