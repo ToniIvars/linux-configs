@@ -31,4 +31,7 @@ cp -r picom ~/.config/
 # Dunst config
 cp -r dunst ~/.config/
 
+# Feh config
+cp -r feh ~/.config/
+
 cp zsh/.zshrc ~/.zshrc
