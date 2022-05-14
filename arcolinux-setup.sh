@@ -4,10 +4,9 @@
 echo -e "[+] Installing some software with paru...\n"
 paru -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
 
-echo -e "[+] Installing VS Code with snap...\n"
 sudo systemctl enable --now snapd.socket
+sudo systemctl start snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install code --classic
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -47,3 +46,6 @@ cp zsh/.zshrc ~/.zshrc &>/dev/null
 
 echo -e "[+] Changing default shell to zsh...\n"
 chsh -s /usr/bin/zsh
+
+echo -e "[+] Installing VS Code with snap...\n"
+sudo snap install code --classic
