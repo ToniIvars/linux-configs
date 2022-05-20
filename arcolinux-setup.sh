@@ -51,4 +51,4 @@ echo -e "[+] Installing VS Code with snap...\n"
 sudo snap install code --classic
 
 echo -e "[+] Installing lxappearance and some themes"
-paru -S bibata-cursor-theme-bin lxappearance-gtk3 breeze-gtk arc-gtk-theme arc-icon-theme arc-darkest-theme-git papirus-icon-theme --noconfirm
+paru -S bibata-cursor-theme-bin breeze-icons lxappearance-gtk3 breeze-gtk arc-gtk-theme arc-icon-theme arc-darkest-theme-git papirus-icon-theme --noconfirm
