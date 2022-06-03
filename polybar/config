@@ -250,18 +250,13 @@ ramp-3 = 
 ramp-4 = 
 
 [module/wlan]
-type = internal/network
-interface = wlp2s0
-interval = 3
+type = custom/script
+exec = /home/toni/.config/polybar/scripts/wifi.sh
+interval = 5
+click-left = exec kitty -e nmtui
 
-format-connected = <label-connected>
-label-connected = "%{A1:kitty -e nmtui:}直%{A}"
-label-connected-foreground = #5B77A7
-
-format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = ${self.label-connected}
-label-disconnected-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
 
 [module/bluetooth]
 type = custom/script

@@ -1,0 +1,1 @@
+echo "%{F#0c0} $(cat /home/toni/.config/polybar/scripts/htb-ip.txt)"

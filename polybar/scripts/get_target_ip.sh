@@ -1,0 +1,1 @@
+echo "%{F#f00}什 $(cat /home/toni/.config/polybar/scripts/target-ip.txt)"
