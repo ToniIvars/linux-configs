@@ -1,8 +1,17 @@
 #!/bin/bash
 
+# Paru installation
+echo -e "[+] Installing paru...\n"
+cd Documents
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+cd ..
+rm -rf paru
+
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
 
 sudo systemctl enable --now snapd.socket
 sudo systemctl start snapd.socket
