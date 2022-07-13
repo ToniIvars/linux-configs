@@ -2,7 +2,6 @@
 
 # Paru installation
 echo -e "[+] Installing paru...\n"
-cd Documents
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
