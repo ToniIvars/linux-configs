@@ -58,5 +58,9 @@ chsh -s /usr/bin/zsh
 echo -e "[+] Installing VS Code with snap...\n"
 sudo snap install code --classic
 
-echo -e "[+] Installing lxappearance and some themes"
+echo -e "[+] Installing lxappearance and some themes...\n"
 paru -S bibata-cursor-theme-bin breeze-icons lxappearance-gtk3 breeze-gtk arc-gtk-theme arc-icon-theme arc-darkest-theme-git papirus-icon-theme --noconfirm
+
+echo -e "[+] Installing Vimix GRUB theme...\n"
+tar -xf vimix-theme.tar.gz
+echo -e '\n' | sudo ./Vimix-1080p/install.sh
