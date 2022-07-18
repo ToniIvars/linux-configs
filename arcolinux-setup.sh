@@ -10,7 +10,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code nerd-fonts-source-code-pro polybar snapd unzip --noconfirm
 
 sudo systemctl enable --now snapd.socket
 sudo systemctl start snapd.socket
@@ -62,5 +62,6 @@ echo -e "[+] Installing lxappearance and some themes...\n"
 paru -S bibata-cursor-theme-bin breeze-icons lxappearance-gtk3 breeze-gtk arc-gtk-theme arc-icon-theme arc-darkest-theme-git papirus-icon-theme --noconfirm
 
 echo -e "[+] Installing Vimix GRUB theme...\n"
-tar -xf vimix-theme.tar.gz
-echo -e '\n' | sudo ./Vimix-1080p/install.sh
+unzip vimix-theme.zip
+sudo mv grub2-theme-vimix-master/Vimix /boot/grub/themes 2>/dev/null
+sudo grub-mkconfig -o /boot/grub/grub.cfg
