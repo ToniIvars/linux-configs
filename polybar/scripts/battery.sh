@@ -1,7 +1,7 @@
 #/bin/bash
 
-number=$(acpi -b | awk -F: '{print $2}' | awk '{print $2}' | tr -d ',%')
-state=$(acpi -b | awk -F: '{print $2}' | awk '{print $1}' | tr -d ',')
+number=$(acpi -b | awk -F: '{print $2}' | awk -F, '{print $2}' | tr -d ' ,%')
+state=$(acpi -b | awk -F: '{print $2}' | awk '{print $2}' | tr -d ',')
 
 if [ $number -gt 75 ]; then
 	color="%{F#0e0}"
@@ -13,7 +13,7 @@ elif [ $number -gt 0 ]; then
 	color="%{F#e00}"
 fi
 
-if [ $state == "Charging" ]; then
+if [ $state == "charging" ]; then
 	echo "$color $number%"
 
 else
