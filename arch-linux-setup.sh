@@ -62,8 +62,8 @@ cp -r feh ~/.config/
 echo -e "[+] Changing default shell to zsh...\n"
 chsh -s /usr/bin/zsh
 
-echo -e "[+] Installing lxappearance and some themes...\n"
-paru -S breeze-icons lxappearance-gtk3 breeze-gtk arc-darkest-theme-git papirus-icon-theme --noconfirm
+echo -e "[+] Installing UI configurations...\n"
+paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc breeze-icons breeze-gtk arc-darkest-theme-git papirus-icon-theme --noconfirm
 
 echo -e "[+] Installing Vimix GRUB theme...\n"
 unzip vimix-theme.zip
@@ -89,4 +89,5 @@ sudo systemctl enable --now snapd.apparmor
 sudo snap install code --classic
 
 echo "Now it is recommended that you reboot your system"
+echo "After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
 exit 0
