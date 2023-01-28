@@ -41,8 +41,8 @@ echo -e "[+] Copying lightdm, polybar, rofi, picom, dunst, feh and zsh config...
 sudo cp lightdm/lightdm.conf /etc/lightdm/
 sudo cp lightdm/slick-greeter.conf /etc/lightdm/
 
-mkdir -p /usr/share/backgrounds
-cp feh/nebula.jpg /usr/share/backgrounds/
+sudo mkdir -p /usr/share/backgrounds
+sudo cp feh/nebula.jpg /usr/share/backgrounds/
 
 # Polybar config
 cp -r polybar ~/.config/ 
@@ -70,11 +70,10 @@ unzip vimix-theme.zip
 sudo mv grub2-theme-vimix-master/Vimix /boot/grub/themes 2>/dev/null
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-echo -e "Copying the timer to automate the system update...\n"
-
-cp timers/sysupdate.* /etc/systemd/system/
-cp timers/system-update.sh /usr/local/bin/
-chmod +x /usr/local/bin/system-update.sh
+echo -e "[+] Copying the timer to automate the system update...\n"
+sudo cp timers/sysupdate.* /etc/systemd/system/
+sudo cp timers/system-update.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/system-update.sh
 
 sudo systemctl enable --now sysupdate.timer
 sudo systemctl start sysupdate.timer
