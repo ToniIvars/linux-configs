@@ -86,8 +86,7 @@ sudo systemctl start snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl enable --now snapd.apparmor
 
-sudo snap install code --classic
-
 echo "Now it is recommended that you reboot your system"
 echo "After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
+echo "You can also install VSCode with 'sudo snap install code --classic'"
 exit 0
