@@ -63,11 +63,10 @@ echo -e "[+] Changing default shell to zsh...\n"
 chsh -s /usr/bin/zsh
 
 echo -e "[+] Installing UI configurations...\n"
-paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc breeze-icons breeze-gtk arc-darkest-theme-git papirus-icon-theme --noconfirm
+paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc breeze-icons breeze-gtk arc-darkest-theme-git papirus-icon-theme grub2-theme-vimix-git --noconfirm
 
-echo -e "[+] Installing Vimix GRUB theme...\n"
-unzip vimix-theme.zip
-sudo mv grub2-theme-vimix-master/Vimix /boot/grub/themes 2>/dev/null
+# Vimix theme installation
+echo 'GRUB_THEME="/boot/grub/themes/Vimix/theme.txt"' >> /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "[+] Copying the timer to automate the system update...\n"

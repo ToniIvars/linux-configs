@@ -194,4 +194,5 @@ alias cat="/usr/bin/bat"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export EDITOR='nano'
+export EDITOR=nano
+export QT_QPA_PLATFORMTHEME=qt5ct
