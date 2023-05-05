@@ -14,7 +14,7 @@ def main():
     devices = check_output('bluetoothctl devices'.split()).decode('utf-8').splitlines()
 
     if not devices:
-        return ''
+        return ''
 
     for device in devices:
 
@@ -22,17 +22,17 @@ def main():
 
         mac = device[1]
         output = check_output(f'bluetoothctl info {mac}'.split()).decode('utf-8').splitlines()
-            
+
         for line in output:
             if 'Connected' in line:
                 if line.split()[-1] == 'yes':
-                    return '%{F#0082FC}'
+                    return '%{F#0082FC}󰂱 '
 
-    return ''
+    return ''
 
 if __name__ == '__main__':
     if bluetooth_on():
         print(main())
 
     else:
-        print('%{F#555}')
+        print('%{F#555}󰂲')

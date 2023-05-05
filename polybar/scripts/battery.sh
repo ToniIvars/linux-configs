@@ -14,16 +14,28 @@ elif [ $number -gt 0 ]; then
 fi
 
 if [ $state == "Charging" ]; then
-	echo "$color $number%"
+	echo "$color󰂄 $number%"
 
 else
-	if [ $number -gt 75 ]; then
-		echo "$color $number%"
+	if [ $number -gt 98 ]; then
+		echo "$color󰁹 $number%"
+	elif [ $number -gt 90 ]; then
+		echo "$color󰂂 $number%"
+	elif [ $number -gt 80 ]; then
+		echo "$color󰂁 $number%"
+	elif [ $number -gt 70 ]; then
+		echo "$color󰂀 $number%"
+	elif [ $number -gt 60 ]; then
+		echo "$color󰁿 $number%"
+	elif [ $number -gt 50 ]; then
+		echo "$color󰁾 $number%"
 	elif [ $number -gt 40 ]; then
-		echo "$color $number%"
+		echo "$color󰁽 $number%"
+	elif [ $number -gt 30 ]; then
+		echo "$color󰁼 $number%"
 	elif [ $number -gt 15 ]; then
-		echo "$color $number%"
+		echo "$color󰁻 $number%"
 	elif [ $number -gt 0 ]; then
-		echo "$color $number%"
+		echo "$color󰁺 $number%"
 	fi
 fi

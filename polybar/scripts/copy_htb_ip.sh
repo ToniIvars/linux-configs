@@ -1,1 +1,0 @@
-cat /home/toni/.config/polybar/scripts/htb-ip.txt | tr -d '\n' | xclip -sel clip
