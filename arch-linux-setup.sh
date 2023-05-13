@@ -14,7 +14,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd polybar unzip lightdm-slick-greeter --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -59,15 +59,12 @@ cp -r dunst ~/.config/
 # Feh config
 cp -r feh ~/.config/ 
 
-echo -e "[+] Changing default shell to zsh...\n"
+echo -e "[+] Changing default shell to zsh and adding user to video group...\n"
 chsh -s /usr/bin/zsh
+sudo usermod -aG video $(whoami)
 
 echo -e "[+] Installing UI configurations...\n"
-paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc breeze-icons breeze-gtk arc-darkest-theme-git papirus-icon-theme grub2-theme-vimix-git --noconfirm
-
-# Vimix theme installation
-echo 'GRUB_THEME="/boot/grub/themes/Vimix/theme.txt"' >> /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme bibata-cursor-theme --noconfirm
 
 echo -e "[+] Copying the timer to automate the system update...\n"
 sudo cp timers/sysupdate.* /etc/systemd/system/
@@ -85,7 +82,7 @@ sudo systemctl start snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl enable --now snapd.apparmor
 
-echo "Now it is recommended that you reboot your system"
-echo "After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
-echo "You can also install VSCode with 'sudo snap install code --classic'"
+echo -e  "\n[+] Now it is recommended that you reboot your system"
+echo "[+] After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
+echo "[+] You can also install VSCode with 'sudo snap install code --classic'"
 exit 0
