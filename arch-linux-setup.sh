@@ -14,7 +14,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -81,6 +81,9 @@ sudo systemctl enable --now snapd.socket
 sudo systemctl start snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo systemctl enable --now snapd.apparmor
+
+echo -e "[+] Enabling bluetooth service...\n"
+sudo systemctl enable --now bluetooth.service
 
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
