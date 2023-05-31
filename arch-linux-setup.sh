@@ -71,8 +71,14 @@ sudo cp timers/sysupdate.* /etc/systemd/system/
 sudo cp timers/system-update.sh /usr/local/bin/
 sudo chmod +x /usr/local/bin/system-update.sh
 
+echo -e "[+] Copying the timer to automate Archivos backup...\n"
+sudo cp timers/msi_backup.service /etc/systemd/system/
+sudo cp timers/msi_backup.timer /etc/systemd/system/
+sudo cp timers/msi_backup.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/msi_backup.sh
+
 sudo systemctl enable --now sysupdate.timer
-sudo systemctl start sysupdate.timer
+sudo systemctl enable --now msi_backup.timer
 
 echo -e "[+] Installing Snapd and VSCode...\n"
 paru -S snapd --noconfirm
