@@ -126,6 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="/usr/bin/lsd"
 alias cat="/usr/bin/bat"
+alias i3config="kitten icat ~/.config/i3/i3config.png"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
