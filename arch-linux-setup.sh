@@ -14,7 +14,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -37,6 +37,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 cp zsh/.zshrc ~/.zshrc
 
 echo -e "[+] Copying lightdm, polybar, rofi, picom, dunst, feh and zsh config...\n"
+
 # LightDM config
 sudo cp lightdm/lightdm.conf /etc/lightdm/
 sudo cp lightdm/slick-greeter.conf /etc/lightdm/
@@ -70,28 +71,11 @@ echo -e "[+] Copying the timer to automate the system update...\n"
 sudo cp timers/sysupdate.* /etc/systemd/system/
 sudo cp timers/system-update.sh /usr/local/bin/
 sudo chmod +x /usr/local/bin/system-update.sh
-
-echo -e "[+] Copying the timer to automate Archivos backup...\n"
-sudo cp timers/msi_backup.service /etc/systemd/system/
-sudo cp timers/msi_backup.timer /etc/systemd/system/
-sudo cp timers/msi_backup.sh /usr/local/bin/
-sudo chmod +x /usr/local/bin/msi_backup.sh
-
 sudo systemctl enable --now sysupdate.timer
-sudo systemctl enable --now msi_backup.timer
-
-echo -e "[+] Installing Snapd and VSCode...\n"
-paru -S snapd --noconfirm
-
-sudo systemctl enable --now snapd.socket
-sudo systemctl start snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-sudo systemctl enable --now snapd.apparmor
 
 echo -e "[+] Enabling bluetooth service...\n"
 sudo systemctl enable --now bluetooth.service
 
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
-echo "[+] You can also install VSCode with 'sudo snap install code --classic'"
 exit 0
