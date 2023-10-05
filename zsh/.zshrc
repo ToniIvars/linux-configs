@@ -133,3 +133,4 @@ alias i3config="kitten icat ~/.config/i3/i3config.png"
 
 export EDITOR=nano
 export QT_QPA_PLATFORMTHEME=qt5ct
+export LOCAL_IP=$(ip a | grep 'inet 192.168' | awk '{print $2}' | awk -F/ '{print $1}')
