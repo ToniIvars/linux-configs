@@ -76,6 +76,10 @@ sudo systemctl enable --now sysupdate.timer
 echo -e "[+] Enabling bluetooth service...\n"
 sudo systemctl enable --now bluetooth.service
 
+echo -e "[+] Copying custom backup script to /usr/local/bin...\n"
+sudo cp msi_backup.sh /usr/local/bin/msi_backup
+sudo chmod +x /usr/local/bin/msi_backup
+
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"
 exit 0
