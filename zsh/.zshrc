@@ -126,6 +126,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="/usr/bin/lsd"
 alias cat="/usr/bin/bat"
+alias ssh="kitten ssh"
 alias i3config="kitten icat ~/.config/i3/i3config.png"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -133,4 +134,4 @@ alias i3config="kitten icat ~/.config/i3/i3config.png"
 
 export EDITOR=nano
 export QT_QPA_PLATFORMTHEME=qt5ct
-export LOCAL_IP=$(ip a | grep 'inet 192.168' | awk '{print $2}' | awk -F/ '{print $1}')
+export LOCAL_IP=$(ip a | awk -v n=2 '/wlan0/{for (i = 1; i <= n; i++) getline; print $2}' | awk -F/ '{print $1}')

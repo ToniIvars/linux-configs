@@ -32,7 +32,7 @@ This document provides documentation for various sections and keybindings in the
 
 - `❖` + `№`: **Switches focused windows** to workspace №.
 
-- `❖` + + `Shift` + `№`: **Moves the currently focused container** to workspace №.
+- `❖` + `Shift` + `№`: **Moves the currently focused container** to workspace №.
 
 ## Miscellaneous
 
