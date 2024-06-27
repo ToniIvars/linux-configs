@@ -97,6 +97,10 @@ function handle-monitors(){
 	fi
 }
 
+function lk {
+  cd "$(walk --icons "$@")"
+}
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -128,6 +132,7 @@ alias ls="/usr/bin/lsd"
 alias cat="/usr/bin/bat"
 alias ssh="kitten ssh"
 alias i3config="kitten icat ~/.config/i3/i3config.png"
+alias acestream="docker compose -f '/home/toni/Archivos/home_lab/development/docker-compose.yml' up"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -14,7 +14,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
