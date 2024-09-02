@@ -14,7 +14,7 @@ rm -rf paru
 
 #Installation
 echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk --noconfirm
+paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -73,8 +73,9 @@ sudo cp timers/system-update.sh /usr/local/bin/
 sudo chmod +x /usr/local/bin/system-update.sh
 sudo systemctl enable --now sysupdate.timer
 
-echo -e "[+] Enabling bluetooth service...\n"
+echo -e "[+] Enabling bluetooth and tailscale services...\n"
 sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now tailscaled
 
 echo -e "[+] Copying custom backup script to /usr/local/bin...\n"
 sudo cp msi_backup.sh /usr/local/bin/msi_backup
