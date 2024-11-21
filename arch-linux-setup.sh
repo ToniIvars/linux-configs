@@ -77,9 +77,11 @@ echo -e "[+] Enabling bluetooth and tailscale services...\n"
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now tailscaled
 
-echo -e "[+] Copying custom backup script to /usr/local/bin...\n"
-sudo cp msi_backup.sh /usr/local/bin/msi_backup
-sudo chmod +x /usr/local/bin/msi_backup
+echo -e "[+] Copying custom utilities to /usr/local/bin...\n"
+sudo cp utilities/* /usr/local/bin
+for filename in utilities/*; do
+    sudo chmod +x /usr/local/bin/$(basename $filename)
+done
 
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start lxappearance, kvantum-manager and qtct to configure the UI"

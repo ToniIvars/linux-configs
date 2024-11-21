@@ -26,3 +26,6 @@ cp -r ~/.config/dunst .
 
 # Feh config
 cp -r ~/.config/feh .
+
+# Utilities
+sudo find /usr/local/bin -maxdepth 1 -type f | xargs -I {} cp {} utilities/
