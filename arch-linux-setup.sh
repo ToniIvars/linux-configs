@@ -65,7 +65,7 @@ chsh -s /usr/bin/zsh
 sudo usermod -aG video $(whoami)
 
 echo -e "[+] Installing UI configurations...\n"
-paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme bibata-cursor-theme --noconfirm
+paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme --noconfirm
 
 echo -e "[+] Copying the timer to automate the system update...\n"
 sudo cp timers/sysupdate.* /etc/systemd/system/

@@ -17,16 +17,16 @@ def main():
         return ''
 
     for device in devices:
+        if device.startswith('Device'):
+          device = device.split()
 
-        device = device.split()
+          mac = device[1]
+          output = check_output(f'bluetoothctl info {mac}'.split()).decode('utf-8').splitlines()
 
-        mac = device[1]
-        output = check_output(f'bluetoothctl info {mac}'.split()).decode('utf-8').splitlines()
-
-        for line in output:
-            if 'Connected' in line:
-                if line.split()[-1] == 'yes':
-                    return '%{F#0082FC}󰂱 '
+          for line in output:
+              if 'Connected' in line:
+                  if line.split()[-1] == 'yes':
+                      return '%{F#0082FC}󰂱 '
 
     return ''
 

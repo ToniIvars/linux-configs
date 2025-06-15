@@ -1,6 +1,6 @@
 #/bin/bash
 
-ssid=$(iwgetid -r | cut -c1-10)
+ssid=$(iwgetid -r | cut -c1-14)
 
 if [ $(nmcli radio wifi) == "enabled" ]; then
 	if [ $(echo "$ssid" | wc -c) -gt 0 ]; then
