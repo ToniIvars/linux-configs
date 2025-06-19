@@ -4,17 +4,17 @@
 echo -e "Activating pacman parallel downloads...\n"
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
 
-# Paru installation
-echo -e "[+] Installing paru...\n"
-git clone https://aur.archlinux.org/paru.git
-cd paru
+# yay installation
+echo -e "[+] Installing yay...\n"
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -si --noconfirm
 cd ..
-rm -rf paru
+rm -rf yay
 
 #Installation
-echo -e "[+] Installing some software with paru...\n"
-paru -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale --noconfirm
+echo -e "[+] Installing some software with yay...\n"
+yay -S python python-pip python-setuptools wget firefox kitty dunst zsh picom acpi light alsa-utils bluez bluez-utils blueberry feh lsd bat rofi libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts polybar unzip lightdm-slick-greeter downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale --noconfirm
 
 # i3 config
 echo -e "[+] Copying i3 and kitty config...\n"
@@ -65,7 +65,7 @@ chsh -s /usr/bin/zsh
 sudo usermod -aG video $(whoami)
 
 echo -e "[+] Installing UI configurations...\n"
-paru -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme --noconfirm
+yay -S lxappearance-gtk3 qt5ct kvantum kvantum-theme-arc arc-gtk-theme papirus-icon-theme --noconfirm
 
 echo -e "[+] Copying the timer to automate the system update...\n"
 sudo cp timers/sysupdate.* /etc/systemd/system/
