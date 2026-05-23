@@ -1,4 +1,0 @@
-#!/bin/bash
-
-source "/home/toni/Archivos/Proyectos Python/dontorrent/env/bin/activate"
-python '/home/toni/Archivos/Proyectos Python/dontorrent/dontorrent.py' "$@"

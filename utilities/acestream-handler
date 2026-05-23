@@ -1,5 +1,0 @@
-#!/bin/bash
-
-content_id=$(echo $1 | awk -F'/' '{print $3}')
-# vlc "http://127.0.0.1:6878/ace/getstream?id=$content_id"
-firefox "http://127.0.0.1/player/$content_id"

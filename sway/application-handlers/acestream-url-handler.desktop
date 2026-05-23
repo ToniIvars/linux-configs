@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Acestream URL Handler
+Comment=Handle URL scheme acestream://
+GenericName=Text Editor
+Exec=/usr/local/bin/acestream-handler %U
+Icon=visual-studio-code
+Type=Application
+NoDisplay=true
+Categories=Utility;Development;
+MimeType=x-scheme-handler/acestream;

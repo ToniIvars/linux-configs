@@ -1,5 +1,0 @@
-[Unit]
-Description=Run system update
-
-[Service]
-ExecStart=/usr/local/bin/system-update.sh
