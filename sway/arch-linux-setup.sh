@@ -14,7 +14,7 @@ rm -rf yay
 
 #Installation
 echo -e "[+] Installing some software with yay...\n"
-yay -S sway swaybg swaylock swayidle rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp grimshot qtgreet python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils blueberry lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale --noconfirm
+yay -S sway swaybg swaylock swayidle rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp grimshot qtgreet python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils blueberry lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale starship --noconfirm
 
 # Sway config
 echo -e "[+] Copying Sway and Kitty config...\n"
@@ -27,16 +27,14 @@ cp -r kitty ~/.config/
 echo -e "[+] Installing oh-my-zsh and its plugins...\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended 
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k 
-cp zsh/.p10k.zsh ~/.p10k.zsh 
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions 
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting 
 
-cp zsh/.zshrc ~/.zshrc
-
 echo -e "[+] Copying lightdm, polybar, rofi, dunst and zsh config...\n"
+cp -r starship ~/.config/
+cp zsh/.zshrc ~/.zshrc
 
 # LightDM config
 sudo cp lightdm/lightdm.conf /etc/lightdm/

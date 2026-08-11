@@ -1,7 +1,9 @@
 #/bin/bash
 
-number=$(acpi -b | awk -F: '{print $2}' | awk -F, '{print $2}' | tr -d ' ,%')
-state=$(acpi -b | awk -F: '{print $2}' | awk '{print $1}' | tr -d ',')
+battery_line=$(acpi -b | tail -n 1)
+
+number=$(echo "$battery_line" | awk -F: '{print $2}' | awk -F, '{print $2}' | tr -d ' ,%')
+state=$(echo "$battery_line" | awk -F: '{print $2}' | awk '{print $1}' | tr -d ',')
 
 if [ $number -gt 75 ]; then
 	color="%{F#0e0}"

@@ -5,7 +5,6 @@ cp -r ~/.config/sway .
 cp -r ~/.config/kitty .
 
 # ZSH config
-cp ~/.p10k.zsh zsh/
 cp ~/.zshrc zsh/
 
 # LightDM config
@@ -26,6 +25,9 @@ cp -r ~/.config/dunst .
 
 # Feh config
 cp -r ~/.config/feh .
+
+# Starship config
+cp -r ~/.config/starship .
 
 # Utilities
 sudo find /usr/local/bin -maxdepth 1 -type f | xargs -I {} cp {} utilities/
