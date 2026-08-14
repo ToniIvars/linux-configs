@@ -16,7 +16,7 @@ rm -rf yay
 
 #Installation
 echo -e "[+] Installing some software with yay...\n"
-yay -S rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils bluetui lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale starship --noconfirm
+yay -S rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils bluetui lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale starship gnome-keyring libsecret seahorse --noconfirm
 
 echo -e "[+] Installing swayfx...\n"
 yay -S swayfx
@@ -103,6 +103,7 @@ sudo chmod 0440 /etc/sudoers.d/tailscale
 echo -e "[+] Configure git account...\n"
 git config --global user.email "toniivaju@gmail.com"
 git config --global user.name "Toni Ivars"
+git config --global credential.helper libsecret
 
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start nwg-look, kvantummanager, qt5ct and qt6ct to configure the UI"
