@@ -23,9 +23,9 @@
     "tooltip": false
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon}\u2002{percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "min-brightness": 10,
+    "min-brightness": 1,
     "tooltip": false
   },
   "pulseaudio": {
@@ -66,8 +66,8 @@
     "format": "",
     "format-off": "󰂲",
     "format-on": "󰂯",
-    "format-connected": "󰂯 {device_alias}",
-    "format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}%",
+    "format-connected": "󰂯\u2004{device_alias}",
+    "format-connected-battery": "󰂯\u2004{device_alias} 󰥉\u2006{device_battery_percentage}%",
     "on-click": "kitty -e bluetui",
     "tooltip": false
   },
