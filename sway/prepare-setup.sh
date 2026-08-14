@@ -1,5 +1,6 @@
 # Sway config
 cp -r ~/.config/sway .
+cp -r ~/.config/swaylock .
 
 # Kitty config
 cp -r ~/.config/kitty .
@@ -11,20 +12,14 @@ cp ~/.zshrc zsh/
 sudo cp /etc/lightdm/lightdm.conf lightdm/
 sudo cp /etc/lightdm/slick-greeter.conf lightdm/
 
-# Polybar config
-cp -r ~/.config/polybar .
+# Waybar config
+cp -r ~/.config/waybar .
 
 # Rofi config
 cp -r ~/.config/rofi .
 
-# Picom config
-cp -r ~/.config/picom .
-
-# Dunst config
-cp -r ~/.config/dunst .
-
-# Feh config
-cp -r ~/.config/feh .
+# Mako config
+cp -r ~/.config/mako .
 
 # Starship config
 cp -r ~/.config/starship .
@@ -34,3 +29,7 @@ sudo find /usr/local/bin -maxdepth 1 -type f | xargs -I {} cp {} utilities/
 
 # Custom application handlers
 cp /usr/share/applications/acestream-url-handler.desktop application-handlers/
+
+# Run tailscale without the password
+sudo cp /etc/sudoers.d/tailscale tailscale/
+sudo chown $USER:$USER tailscale/tailscale && chmod 755 tailscale/tailscale

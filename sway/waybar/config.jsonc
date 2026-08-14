@@ -1,0 +1,87 @@
+// -*- mode: jsonc -*-
+{
+  "reload_style_on_change": true,
+  "spacing": 16,
+  // Choose the order of the modules
+  "modules-left": [
+    "custom/arch_menu",
+    "backlight",
+    "pulseaudio",
+    "custom/updates"
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/tailscale",
+    "network",
+    "bluetooth",
+    "battery"
+  ],
+
+  "custom/arch_menu": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "min-brightness": 10,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [""]
+    },
+    "on-click": "pactl set-sink-mute \\@DEFAULT_SINK@ toggle"
+  },
+  "custom/updates": {
+    "exec": "/home/toni/.config/waybar/scripts/updates.sh",
+    "interval": 10,
+    "on-click": "kitty -e yay -Su",
+    "format": "{}",
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%d-%m-%Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "custom/tailscale": {
+    "exec": "/home/toni/.config/waybar/scripts/tailscale.sh",
+    "return-type": "json",
+    "interval": 5,
+    "on-click": "/home/toni/.config/waybar/scripts/tailscale_toggle.sh",
+    "format": "{}",
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "󰖩 {essid}",
+    "format-disconnected": "󰖪",
+    "on-click": "kitty -e nmtui",
+    "tooltip-format": "{ifname} via {gwaddr}"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-on": "󰂯",
+    "format-connected": "󰂯 {device_alias}",
+    "format-connected-battery": "󰂯 {device_alias} {device_battery_percentage}%",
+    "on-click": "kitty -e bluetui",
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
+    },
+    "format": "{icon}\u2004{capacity}%",
+    "format-charging": "󰂄\u2004{capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  }
+}

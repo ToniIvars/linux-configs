@@ -1,0 +1,31 @@
+# Global Styling
+font=SauceCodePro NF 12
+border-radius=7
+
+# Text Alignment & Wrapping
+# word-wrap=1
+
+# Layout, Positioning, and Geometry
+width=500
+height=400
+margin=30,5,0,0
+padding=6,10
+
+# Urgency Levels & Theme Colors (including transparency)
+[urgency=low]
+background-color=#E2E3E5CC
+text-color=#1B1E21
+border-color=#1B1E21
+default-timeout=4000
+
+[urgency=normal]
+background-color=#CCE5FFCC
+text-color=#145091
+border-color=#145091
+default-timeout=8000
+
+[urgency=critical]
+background-color=#F8D7DACC
+text-color=#721C24
+border-color=#721C24
+default-timeout=0

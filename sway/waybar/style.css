@@ -1,0 +1,87 @@
+* {
+  border: none;
+  border-radius: 12px;
+  font-family: "SauceCodePro NF Semibold", sans-serif;
+  font-size: 16px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(34, 34, 34, 0.6);
+  color: #ffffff;
+  border: 4px solid transparent;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+tooltip label {
+  color: #ddd;
+}
+
+/* Base module padding */
+#custom-arch_menu,
+#backlight,
+#pulseaudio,
+#custom-updates,
+#clock,
+#custom-tailscale,
+#network,
+#bluetooth,
+#battery {
+  margin: 8px 0;
+}
+
+.modules-left {
+  padding-left: 20px;
+}
+
+.modules-right {
+  padding-right: 24px;
+}
+
+#custom-arch_menu {
+  color: #5B77A7; /* Primary color emphasis */
+  font-size: 18px;
+  padding-right: 4px;
+}
+
+#custom-updates {
+  color: #ee0000;
+}
+
+#custom-tailscale {
+  margin-right: -8px;
+  font-size: 18px;
+}
+
+#network {
+  color: #5B77A7;
+}
+
+#pulseaudio.muted, #network.disconnected {
+  color: #555555;
+  padding-right: 8px;
+}
+
+#battery, #custom-tailscale.connected {
+  color: rgb(26, 219, 26);
+}
+
+#battery.warning {
+  color: #d5e312;
+}
+
+#battery.critical {
+  color: #bd2c40;
+}
+
+#bluetooth.off {
+  color: #555555;
+}
+
+#bluetooth.connected {
+  color: #0082fc;
+}

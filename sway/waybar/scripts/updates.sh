@@ -3,9 +3,9 @@
 updates=$(timeout 2 pacman -Q -u | grep -vE "\[ignorado\]|\[ignored\]" | wc -l)
 
 if [ $? -gt 0 ]; then
-	echo "%{F#ee0000}󰁈 Error"
+	echo "󰁈 Error"
 elif [ $updates -gt 0 ]; then
-	echo "%{F#ee0000}󰁈 $updates"
+	echo "󰁈 $updates"
 else
 	echo ""
 fi

@@ -1,4 +1,4 @@
-add_newline = true
+add_newline = false
 
 format = """
 $directory\
@@ -10,7 +10,6 @@ $character\
 right_format = """
 $cmd_duration\
 $status\
-$localip\
 """
 
 [character]
@@ -52,8 +51,3 @@ disabled = false
 format = "[$symbol$status]($style) "
 symbol = " "
 style = "bold red"
-
-[localip]
-disabled = false
-ssh_only = false
-style = "cyan"
