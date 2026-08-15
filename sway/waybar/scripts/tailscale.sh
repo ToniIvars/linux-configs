@@ -2,7 +2,10 @@
 
 # Check if tailscale is stopped or inactive
 if tailscale status | grep -q 'stopped'; then
-    printf '{"text": "󱗼 ", "class": "stopped", "tooltip": "Tailscale: Disconnected"}\n'
+    printf '{"text": "󱗼 ", "class": "stopped", "tooltip": "Disconnected"}\n'
 else
-    printf '{"text": "󱗼 ", "class": "connected", "tooltip": "Tailscale: Connected"}\n'
+    DEVICE_IP=$(tailscale ip -4)
+    DEVICE_NAME=$(tailscale status --json | jq -r '.Self.HostName')
+
+    printf '{"text": "󱗼 ", "class": "connected", "tooltip": "%s (%s)"}\n' "$DEVICE_NAME" "$DEVICE_IP"
 fi

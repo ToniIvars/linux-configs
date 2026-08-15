@@ -116,7 +116,7 @@ alias java="env _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' java"
 
 export EDITOR=nano
 export QT_QPA_PLATFORMTHEME=qt5ct
-export LOCAL_IP=$(ip a | awk -v n=3 '/wlp2s0/{for (i = 1; i <= n; i++) getline; print $2}' | awk -F/ '{print $1}')
+export LOCAL_IP=$(ip route get 1.1.1.1 | awk '{print $7}' | tr -d '\\n')
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
