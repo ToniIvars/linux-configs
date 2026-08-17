@@ -16,7 +16,7 @@ rm -rf yay
 
 #Installation
 echo -e "[+] Installing some software with yay...\n"
-yay -S rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils bluetui lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale starship gnome-keyring libsecret seahorse jq --noconfirm
+yay -S sway-contrib rofi waybar wl-clipboard xdg-desktop-portal-wlr brightnessctl mako grim slurp python python-pip python-setuptools wget firefox kitty zsh acpi alsa-utils bluez bluez-utils bluetui lsd bat libnotify thunar gvfs thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler libgsf gvfs-mtp ttf-fira-code ttf-sourcecodepro-nerd noto-fonts unzip downgrade docker docker-compose pacman-contrib leafpad ark visual-studio-code-bin walk tailscale starship gnome-keyring libsecret seahorse jq --noconfirm
 
 echo -e "[+] Installing swayfx and swaylock-effects...\n"
 yay -S swayfx swaylock-effects

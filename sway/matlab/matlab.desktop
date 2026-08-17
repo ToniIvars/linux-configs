@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+MimeType=text/x-matlab
+Exec=env MATLAB_NO_CRASH_REPORTER=1 /home/toni/matlab/bin/matlab -desktop -useStartupFolderPref
+Name=MATLAB
+Icon=matlab
+Categories=Development;Math;Science
+Comment=Scientific computing environment
+StartupNotify=true
