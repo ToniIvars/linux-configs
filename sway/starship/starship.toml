@@ -4,6 +4,7 @@ format = """
 $directory\
 $git_branch\
 $git_status\
+$python\
 $character\
 """
 
@@ -51,3 +52,10 @@ disabled = false
 format = "[$symbol$status]($style) "
 symbol = " "
 style = "bold red"
+
+
+[python]
+symbol = ' '
+version_format = '${raw}'
+format = '[${symbol}(${version} )(\($virtualenv\) )]($style)'
+style = '#f7c213 bold'

@@ -217,13 +217,17 @@ bar {
 
 ##### Configuration of the windows
 
+font SauceCodePro NF 12
+
 default_border pixel none
 gaps inner 6
 gaps top -3
 smart_gaps off
 corner_radius 8
 
-exec_always python3 /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.85
+client.focused #3D4A76 #3D4A76 #ffffff
+
+exec_always python3 /usr/share/sway-contrib/inactive-windows-transparency.py --opacity 0.8
 
 ##### Cursor theme
 seat seat0 xcursor_theme Breeze_Light 24

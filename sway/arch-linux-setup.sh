@@ -56,9 +56,10 @@ cp -r rofi ~/.config/
 # Mako config
 cp -r mako ~/.config/
 
-echo -e "[+] Changing default shell to zsh and adding user to video group...\n"
+echo -e "[+] Changing default shell to zsh and adding user to video and docker groups...\n"
 chsh -s /usr/bin/zsh
-sudo usermod -aG video $(whoami)
+sudo usermod -aG video $USER
+sudo usermod -aG docker $USER
 
 echo -e "[+] Installing UI configurations...\n"
 yay -S nwg-look qt5ct qt6ct kvantum kvantum-qt5 papirus-icon-theme breeze-cursors --noconfirm

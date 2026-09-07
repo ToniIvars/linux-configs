@@ -1,10 +1,9 @@
 [Desktop Entry]
 Name=Acestream URL Handler
 Comment=Handle URL scheme acestream://
-GenericName=Text Editor
 Exec=/usr/local/bin/acestream-handler %U
-Icon=visual-studio-code
+Icon=vlc
 Type=Application
 NoDisplay=true
-Categories=Utility;Development;
+Categories=AudioVideo;Player;
 MimeType=x-scheme-handler/acestream;
