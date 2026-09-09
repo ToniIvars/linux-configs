@@ -2,7 +2,7 @@
 Type=Application
 Terminal=false
 MimeType=text/x-matlab
-Exec=env MATLAB_NO_CRASH_REPORTER=1 /home/toni/matlab/bin/matlab -desktop -useStartupFolderPref
+Exec=/home/toni/matlab/launch_matlab.sh
 Name=MATLAB
 Icon=matlab
 Categories=Development;Math;Science
