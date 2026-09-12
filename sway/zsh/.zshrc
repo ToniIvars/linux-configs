@@ -113,9 +113,10 @@ alias cat="/usr/bin/bat"
 alias ssh="kitten ssh"
 alias cpc="xclip -sel c"
 alias java="env _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on' java"
+alias gap="/usr/bin/gap"
 
 export EDITOR=nano
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 export LOCAL_IP=$(ip route get 1.1.1.1 | awk '{print $7}' | tr -d '\\n')
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml

@@ -106,6 +106,9 @@ git config --global user.email "toniivaju@gmail.com"
 git config --global user.name "Toni Ivars"
 git config --global credential.helper libsecret
 
+echo -e "[+] Add QT_QPA_PLATFORMTHEME=qt6ct to /etc/environment...\n"
+echo "QT_QPA_PLATFORMTHEME=qt6ct" | sudo tee -a /etc/environment
+
 echo -e  "\n[+] Now it is recommended that you reboot your system"
 echo "[+] After doing it, start nwg-look, kvantummanager, qt5ct and qt6ct to configure the UI"
 exit 0

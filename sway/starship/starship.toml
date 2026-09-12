@@ -45,14 +45,13 @@ stashed = "[*$count](green) "
 
 [cmd_duration]
 min_time = 3_000
-format = "[$duration](color 101) "
+format = "[$duration](color 101)"
 
 [status]
 disabled = false
-format = "[$symbol$status]($style) "
+format = " [$symbol$status]($style)"
 symbol = " "
 style = "bold red"
-
 
 [python]
 symbol = ' '
